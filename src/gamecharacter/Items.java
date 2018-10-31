@@ -1,6 +1,6 @@
 package gamecharacter;
 
-public class Items {
+public class Items{
     private String name;
     private double price;
     private int quantity;
@@ -35,4 +35,7 @@ public class Items {
         this.quantity = quantity;
     }
 
+    public void used(GameCharacter gameCharacter){
+        this.quantity -= 1;
+    }
 }

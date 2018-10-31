@@ -5,9 +5,41 @@ import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
+        //Character
         GameCharacter swordMan = new GameCharacter("Tiger", 10, 20, 30, 1000, 1, 0);
-        Items potion = new Items("potion", 100);
+        GameCharacter lizardMan = new GameCharacter("Lizard", 100, 20, 50, 0, 2, 100);
+
+        //todo Items
+        UsableItems potion = new UsableItems("potion", 100);
         Items escapeRope = new Items("escape", 50);
+
+        //Skills
+        Skills thunder = new Skills("Thunder", "Active");
+        Skills solarbeam = new Skills("Solarbeam", "Active");
+        Skills statUp = new Skills("StatUp", "Passive");
+        Skills dieHard = new Skills("DieHard", "Passive");
+
+        //Monster balls
+        MonsterBall pokeball = new MonsterBall("pokeball", 100);
+        MonsterBall greatball = new MonsterBall("greatball", 200);
+        MonsterBall ultraball = new MonsterBall("ultraball", 300);
+
+        //test
+        swordMan.receiveItems(potion, 5);
+        System.out.println("----------ITEMS BEFORE USE----------");
+        for (Items ball : swordMan.getItemsList()){
+            System.out.println(ball.getName());
+            System.out.println("price: "+ball.getPrice());
+            System.out.println("quentity: "+ball.getQuantity());
+        }
+        System.out.println("----------Character before use item----------");
+        System.out.println("Name: "+swordMan.getName());
+        System.out.println("HP: "+swordMan.getHp());
+        System.out.println("Damage: "+swordMan.getDamage());
+        System.out.println("Defense: "+swordMan.getDefense());
+        System.out.println("Exp: "+swordMan.getExp());
+        System.out.println("Level: "+swordMan.getLevel());
+        System.out.println("Money: "+swordMan.getMoney());
 
 //        try{
 //            swordMan.receiveItems(potion, 2);
@@ -42,8 +74,7 @@ public class Main {
 //            System.out.println(items.getQuantity());
 //        }
 
-        Skills thunder = new Skills("Thunder", "Active");
-        Skills statUp = new Skills("StatUp", "Passive");
+
 //        swordMan.learnSkill(thunder);
 //        swordMan.learnSkill(statUp);
 //        swordMan.learnSkill(statUp);
@@ -55,16 +86,24 @@ public class Main {
 //            System.out.println(skills.getLevel());
 //        }
 
-        MonsterBall pokeball = new MonsterBall("pokeball", 100);
-        swordMan.buy(pokeball, 2);
 
+        swordMan.useItem(potion);
 
-        System.out.println(swordMan.getMoney());
+//        System.out.println(swordMan.getMoney());
+        System.out.println("----------ITEMS AFTER USED----------");
         for (Items ball : swordMan.getItemsList()){
             System.out.println(ball.getName());
-            System.out.println(ball.getPrice());
-            System.out.println(ball.getQuantity());
+            System.out.println("price: "+ball.getPrice());
+            System.out.println("quentity: "+ball.getQuantity());
         }
+        System.out.println("----------Character after use items----------");
+        System.out.println("Name: "+swordMan.getName());
+        System.out.println("HP: "+swordMan.getHp());
+        System.out.println("Damage: "+swordMan.getDamage());
+        System.out.println("Defense: "+swordMan.getDefense());
+        System.out.println("Exp: "+swordMan.getExp());
+        System.out.println("Level: "+swordMan.getLevel());
+        System.out.println("Money: "+swordMan.getMoney());
 
     }
 }
